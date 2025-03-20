@@ -8,9 +8,9 @@
 
 ### **🔹 Check Git Installation
 
-'''
+```
 git --version
-'''
+```
 
 ## **2. Create a GitHub Personal Access Token (PAT)**  
 
@@ -47,42 +47,42 @@ git --version
 ## **3. Git Basic Commands (For Assignment-1 Repo)**  
 
 ### **🔹 One-Time Git Setup**  
-'''
+```
 git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
-'''
+```
 
 ### **🔹 Clone the Assignment Repository**  
-'''
+```
 git clone https://github.com/Emadram/Assignment-1.git
 cd Assignment-1
-'''
+```
 
 ### **🔹 Check Repository Status**  
-'''
+```
 git status
-'''
+```
 
 ### **🔹 Pull Latest Changes from Remote**  
-'''
+```
 git pull origin main
-'''
+```
 
 ### **🔹 Add Files to Staging**  
-'''
+```
 git add <filename>  # Add a specific file
 git add .           # Add all changes
-'''
+```
 
 ### **🔹 Commit Changes**  
-'''
+```
 git commit -m "Your commit message"
-'''
+```
 
 ### **🔹 Push Changes to Remote Repository**  
-'''
+```
 git push origin main
-'''
+```
 
 ---
 
