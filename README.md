@@ -6,12 +6,11 @@
 - **Download Git for Windows**: [Git Website](https://git-scm.com/downloads)  
 - Install it using default settings.
 
-### **🔹 Check Git Installation**  
+### **🔹 Check Git Installation
+
 '''
 git --version
 '''
-
----
 
 ## **2. Create a GitHub Personal Access Token (PAT)**  
 
