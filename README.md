@@ -49,12 +49,16 @@ git --version
 ### **🔹 One-Time Git Setup**  
 ```
 git config --global user.name "Your Name"
+```
+```
 git config --global user.email "your.email@example.com"
 ```
 
 ### **🔹 Clone the Assignment Repository**  
 ```
 git clone https://github.com/Emadram/Assignment-1.git
+```
+```
 cd Assignment-1
 ```
 
@@ -71,6 +75,8 @@ git pull origin main
 ### **🔹 Add Files to Staging**  
 ```
 git add <filename>  # Add a specific file
+```
+```
 git add .           # Add all changes
 ```
 
