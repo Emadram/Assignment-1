@@ -85,9 +85,7 @@ class Student:
     @param last_name = passed student last_name @Type = Str
     """
     def set_first_name(self, last_name):
-        self.__first_name = last_name
-
-
+        self.__last_name = last_name
 
 
 
