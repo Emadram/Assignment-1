@@ -9,7 +9,7 @@ class Student:
     @param __country_of_birth: Student country of birth @Type = Str
     @param __sex: Student sex (Male/Female) @Type = Str
     """
-    def __init__(self, student_number, first_name
+    def __init__(self, student_number, first_name, 
         last_name, date_of_birth, country_of_birth, sex):
     self.__student_number = student_number
     self.__first_name = first_name
