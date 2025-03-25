@@ -56,6 +56,12 @@ class Student:
     def get_country_of_birth(self):
         return self.__country_of_birth
 
+    """
+    #-Student sex getter
+    @returns students sex @Type = Str
+    """
+    def get_sex(self):
+        return self.__sex
 
 
 
