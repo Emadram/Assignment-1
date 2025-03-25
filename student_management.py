@@ -18,7 +18,15 @@ class Student:
     self.__country_of_birth = country_of_birth
     self.__sex = sex
 
-
+    #-------------------------#
+    # Getter Methods Section  #
+    #-------------------------#
+    """
+    #-Student number getter
+    @returns students number @Type = Str
+    """
+    def get_student_number(self):
+        return self.__student_number
 
 
 
