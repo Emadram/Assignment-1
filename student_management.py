@@ -7,7 +7,7 @@ class Student:
     @param __student_number: Student number which is used as a unique identifier @Type = Str
     @param __first_name: Student first name @Type = Str
     @param __last_name: Student last name @Type = Str
-    @param __date_of_birth: Student date of birth @Type = Str
+    @param __date_of_birth: Student date of birth @Type = Int
     @param __country_of_birth: Student country of birth @Type = Str
     @param __sex: Student sex (Male/Female) @Type = Str
     """
