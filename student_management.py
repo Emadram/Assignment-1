@@ -1,5 +1,5 @@
 from datetime import datetime, date #Using to get age and storing date_of_birth
-
+import csv  # Using for file operations
 class Student:
     """
     #-Student class with private attribtutes.
@@ -17,7 +17,7 @@ class Student:
         self.__student_number = str(student_number)
         self.__first_name = str(first_name)
         self.__last_name = str(last_name)
-        self.__date_of_birth = datetime.datetime.strptime(date_of_birth, "%Y-%m-%d").year
+        self.__date_of_birth = self.formatDate(date_of_birth)
         self.__country_of_birth = str(country_of_birth)
         self.__sex = str(sex)
 
@@ -49,8 +49,9 @@ class Student:
     #-Student date of birth getter
     @returns students date of birth @Type = Str
     """
-    def getDateOfBirth(self):
-        return self.__date_of_birth
+    def getDateOfBirth(self): 
+        return self.__date_of_birth.strftime("%Y-%m-%d")
+
 
     """
     #-Student country of birth getter
@@ -70,9 +71,8 @@ class Student:
     #-Student age getter
     @returns students age @Type = Str
     """
-    def getAge(self):
-        current_year = datetime.date.today().year
-        return  current_year - self.__date_of_birth
+    def getAge(self): 
+        return datetime.today().year - self.__date_of_birth.year
 
     #-------------------------#
     # Setter Methods Section  #
@@ -102,8 +102,8 @@ class Student:
     #-Student date_of_birth setter
     @param date_of_birth = passed student date_of_birth @Type = Str
     """
-    def setDateOfBirth(self, date_of_birth):
-        self.__date_of_birth = date.datetime.strptime(date_of_birth, "%Y-%m-%d")
+    def setDateOfBirth(self, date_of_birth): 
+        self.__date_of_birth = self.formatDate(date_of_birth)
 
     """
     #-Student country_of_birth setter
@@ -117,15 +117,94 @@ class Student:
     @param sex = passed student sex @Type = Str
     """
     def setSex(self, sex):
-        self.sex = sex
+        self.__sex = sex
 
+    def toList(self):
+        """
+        #- Convert student object to list format for CSV storage
+        """
+        return [
+            self.__student_number,
+            self.__first_name,
+            self.__last_name,
+            self.__date_of_birth.strftime("%Y-%m-%d"),
+            self.__country_of_birth,
+            self.__sex
+        ]
+    @staticmethod
+    def formatDate(date_str):
+        """
+        #- Ensure the date is correctly formatted, accepting multiple formats.
+        """
+        if isinstance(date_str, datetime):
+            return date_str  # If it's already a datetime object, return it directly
+        
+        for fmt in ("%Y-%m-%d", "%Y%m%d"):
+            try:
+                return datetime.strptime(date_str, fmt)
+            except ValueError:
+                continue
+        raise ValueError("Invalid date format. Please use YYYY-MM-DD or YYYYMMDD.")
+class StudentManager:
+      """
+      #- Manages a list of Student objects.
+      """
+      def __init__(self):
+          self.students = []
+  
+      def addStudent(self, student):
+          """
+          #- Add a student to the list.
+          """
+          if len(self.students) < 100:
+              self.students.append(student)
+          else:
+              print("Student list is full!")
+  
+      def findStudent(self, student_number):
+          """
+          #- Find a student by student number.
+          """
+          for student in self.students:
+              if student.getStudentNumber() == student_number:
+                  return student
+          return None
+  
+      def showStudents(self):
+          """
+          #- Display all students.
+          """
+          for student in self.students:
+              print(student.toList())
+  
+      
+      def saveToFile(self, filename):
+        """
+        #- Save students to a CSV file.
+        """
+        with open(filename, 'w', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(["Student Number", "First Name", "Last Name", "Date of Birth", "Country of Birth", "Sex"])
+            for student in self.students:
+                writer.writerow(student.toList())
+
+      def loadFromFile(self, filename):
+        """
+        #- Load students from a CSV file.
+        """
+        try:
+            with open(filename, 'r') as f:
+                reader = csv.reader(f)
+                next(reader)  # Skip header row
+                self.students = [Student(row[0], row[1], row[2], Student.formatDate(row[3]), row[4], row[5]) for row in reader]
+        except FileNotFoundError:
+            print("File not found!")
+
+#-------------------------#
+# Main Menu Section      #
+#-------------------------#
 def main():
-    return
+    return    
 
-
-"""
-#-Check to know wheter the file is importated or not
-#-If imported then the following statements won't be executed
-"""
 if __name__ == "__main__":
     main()
