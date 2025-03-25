@@ -3,6 +3,7 @@ import datetime #Using to get age and storing date_of_birth
 class Student:
     """
     #-Student class with private attribtutes.
+    #- We used __ before the attiribute to indicate that they are private attributes
     #-With getter and setter
     @param __student_number: Student number which is used as a unique identifier @Type = Str
     @param __first_name: Student first name @Type = Str
@@ -122,6 +123,9 @@ def main():
     return
 
 
-
+"""
+#-Check to know wheter the file is importated or not
+#-If imported then the following statements won't be executed
+"""
 if __name__ == "__main__":
     main()
