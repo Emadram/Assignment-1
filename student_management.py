@@ -84,10 +84,15 @@ class Student:
     #-Student last_name setter
     @param last_name = passed student last_name @Type = Str
     """
-    def set_first_name(self, last_name):
+    def set_last_name(self, last_name):
         self.__last_name = last_name
 
-
+    """
+    #-Student date_of_birth setter
+    @param date_of_birth = passed student date_of_birth @Type = Str
+    """
+    def set_date_of_birth(self, date_of_birth):
+        self.__date_of_birth = date_of_birth
 
 
 
