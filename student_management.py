@@ -42,6 +42,13 @@ class Student:
     def get_last_name(self):
         return self.__last_name
 
+    """
+    #-Student date of birth getter
+    @returns students date of birth @Type = Str
+    """
+    def get_date_of_birth(self):
+        return self.__date_of_birth
+
 
 
 
