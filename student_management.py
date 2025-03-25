@@ -73,6 +73,12 @@ class Student:
     def set_student_number(self, student_number):
         self.__student_number = student_number
 
+    """
+    #-Student first_name setter
+    @param first_name = passed student first_name @Type = Str
+    """
+    def set_first_name(self, first_name):
+        self.__first_name = first_name
 
 
 
