@@ -1,3 +1,4 @@
+import datetime
 class Student:
     """
     #-Student class with private attribtutes.
@@ -11,11 +12,11 @@ class Student:
     """
     def __init__(self, student_number, first_name, \
         last_name, date_of_birth, country_of_birth, sex):
-        self.__student_number = student_number
+        self.__student_number = str(student_number)
         self.__first_name = first_name
         self.__last_name = last_name
-        self.__date_of_birth = date_of_birth
-        self.__country_of_birth = country_of_birth
+        self.__date_of_birth = str(date_of_birth)
+        self.__country_of_birth = str(country_of_birth)
         self.__sex = sex
 
     #-------------------------#
@@ -68,7 +69,7 @@ class Student:
     @returns students age @Type = Str
     """
     def get_age(self):
-        return datetime.date.today().year - __date_of_birth.date.year
+        return datetime.date.today().year - self.__date_of_birth.date.year
 
     #-------------------------#
     # Setter Methods Section  #
@@ -99,7 +100,7 @@ class Student:
     @param date_of_birth = passed student date_of_birth @Type = Str
     """
     def set_date_of_birth(self, date_of_birth):
-        self.__date_of_birth = date_of_birth
+        self.__date_of_birth = date.datetime.strptime(date_of_birth, "%Y-%m-%d")
 
     """
     #-Student country_of_birth setter
@@ -121,4 +122,7 @@ def main():
 
 
 if __name__ == "__main__":
+    s1 = Student(1,'A','B', "2000-03-11", 'Test', 'Test')
+    print(s1.get_age())
+    print(s1.get_sex())
     main()
