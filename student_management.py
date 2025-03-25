@@ -101,6 +101,12 @@ class Student:
     def set_country_of_birth(self, country_of_birth):
         self.__country_of_birth = country_of_birth
 
+    """
+    #-Student sex setter
+    @param sex = passed student sex @Type = Str
+    """
+    def set_sex(self, sex):
+        self.sex = sex
 
 
 
