@@ -13,11 +13,11 @@ class Student:
     def __init__(self, student_number, first_name, \
         last_name, date_of_birth, country_of_birth, sex):
         self.__student_number = str(student_number)
-        self.__first_name = first_name
-        self.__last_name = last_name
+        self.__first_name = str(first_name)
+        self.__last_name = str(last_name)
         self.__date_of_birth = datetime.datetime.strptime(date_of_birth, "%Y-%m-%d").year
         self.__country_of_birth = str(country_of_birth)
-        self.__sex = sex
+        self.__sex = str(sex)
 
     #-------------------------#
     # Getter Methods Section  #
@@ -69,7 +69,8 @@ class Student:
     @returns students age @Type = Str
     """
     def get_age(self):
-        return datetime.date.today().year - self.__date_of_birth
+        current_year = datetime.date.today().year
+        return  current_year - self.__date_of_birth
 
     #-------------------------#
     # Setter Methods Section  #
