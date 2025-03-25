@@ -63,6 +63,9 @@ class Student:
     def get_sex(self):
         return self.__sex
 
+    #-------------------------#
+    # Setter Methods Section  #
+    #-------------------------#
 
 
 
