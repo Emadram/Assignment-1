@@ -49,6 +49,13 @@ class Student:
     def get_date_of_birth(self):
         return self.__date_of_birth
 
+    """
+    #-Student country of birth getter
+    @returns students country of birth @Type = Str
+    """
+    def get_country_of_birth(self):
+        return self.__country_of_birth
+
 
 
 
