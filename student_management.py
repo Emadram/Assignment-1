@@ -28,6 +28,13 @@ class Student:
     def get_student_number(self):
         return self.__student_number
 
+    """
+    #-Student first_name getter
+    @returns first name of student @Type = Str
+    """
+    def get_first_name(self):
+        return self.__first_name
+
 
 
 
