@@ -123,7 +123,4 @@ def main():
 
 
 if __name__ == "__main__":
-    s1 = Student(1,'A','B', "2000-03-11", 'Test', 'Test')
-    print(s1.get_sex())
-    print(s1.get_age())
     main()
