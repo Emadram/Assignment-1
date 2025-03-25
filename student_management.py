@@ -35,6 +35,13 @@ class Student:
     def get_first_name(self):
         return self.__first_name
 
+    """
+    #-Student last_name getter
+    @returns last name of student @Type = Str
+    """
+    def get_last_name(self):
+        return self.__last_name
+
 
 
 
