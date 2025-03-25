@@ -115,6 +115,10 @@ class Student:
     def set_sex(self, sex):
         self.sex = sex
 
+def main():
+    return
+
+
 
 if __name__ == "__main__":
     main()
