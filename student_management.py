@@ -19,6 +19,9 @@ class Student:
         self.__country_of_birth = str(country_of_birth)
         self.__sex = str(sex)
 
+    def __init__(self):
+        yield
+
     #-------------------------#
     # Getter Methods Section  #
     #-------------------------#
