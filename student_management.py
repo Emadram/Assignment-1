@@ -94,6 +94,13 @@ class Student:
     def set_date_of_birth(self, date_of_birth):
         self.__date_of_birth = date_of_birth
 
+    """
+    #-Student country_of_birth setter
+    @param country_of_birth = passed student country_of_birth @Type = Str
+    """
+    def set_country_of_birth(self, country_of_birth):
+        self.__country_of_birth = country_of_birth
+
 
 
 
