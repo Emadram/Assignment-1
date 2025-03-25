@@ -15,7 +15,7 @@ class Student:
         self.__student_number = str(student_number)
         self.__first_name = first_name
         self.__last_name = last_name
-        self.__date_of_birth = str(date_of_birth)
+        self.__date_of_birth = datetime.datetime.strptime(date_of_birth, "%Y-%m-%d").year
         self.__country_of_birth = str(country_of_birth)
         self.__sex = sex
 
@@ -69,7 +69,7 @@ class Student:
     @returns students age @Type = Str
     """
     def get_age(self):
-        return datetime.date.today().year - self.__date_of_birth.date.year
+        return datetime.date.today().year - self.__date_of_birth
 
     #-------------------------#
     # Setter Methods Section  #
@@ -123,6 +123,6 @@ def main():
 
 if __name__ == "__main__":
     s1 = Student(1,'A','B', "2000-03-11", 'Test', 'Test')
-    print(s1.get_age())
     print(s1.get_sex())
+    print(s1.get_age())
     main()
