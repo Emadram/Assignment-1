@@ -63,6 +63,13 @@ class Student:
     def get_sex(self):
         return self.__sex
 
+    """
+    #-Student age getter
+    @returns students age @Type = Str
+    """
+    def get_age(self):
+        return datetime.date.today().year - __date_of_birth.date.year
+
     #-------------------------#
     # Setter Methods Section  #
     #-------------------------#
@@ -107,7 +114,6 @@ class Student:
     """
     def set_sex(self, sex):
         self.sex = sex
-
 
 
 if __name__ == "__main__":
