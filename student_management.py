@@ -66,7 +66,12 @@ class Student:
     #-------------------------#
     # Setter Methods Section  #
     #-------------------------#
-
+    """
+    #-Student number setter
+    @param student_number = passed student number @Type = Str
+    """
+    def set_student_number(self, student_number):
+        self.__student_number = student_number
 
 
 
