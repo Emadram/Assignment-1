@@ -131,6 +131,7 @@ class Student:
             self.__date_of_birth.strftime("%Y-%m-%d"),
             self.__country_of_birth,
             self.__sex
+            self.getAge()
         ]
     @staticmethod
     def formatDate(date_str):
