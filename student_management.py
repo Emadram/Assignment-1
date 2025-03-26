@@ -130,7 +130,7 @@ class Student:
             self.__last_name,
             self.__date_of_birth.strftime("%Y-%m-%d"),
             self.__country_of_birth,
-            self.__sex
+            self.__sex,
             self.getAge()
         ]
     @staticmethod
