@@ -186,7 +186,7 @@ class StudentManager:
         """
         with open(filename, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(["Student Number", "First Name", "Last Name", "Date of Birth", "Country of Birth", "Sex"])
+            writer.writerow(["Student Number", "First Name", "Last Name", "Date of Birth", "Country of Birth", "Sex", "Age"])
             for student in self.students:
                 writer.writerow(student.toList())
 
