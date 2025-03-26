@@ -149,69 +149,66 @@ class Student:
         raise ValueError("Invalid date format. Please use YYYY-MM-DD or YYYYMMDD.")
 
 class StudentManager:
-      """
-      #- Manages a list of Student objects.
-      """
-      def __init__(self):
-          self.students = []
-  
-      def addStudent(self, student):
-          """
-          #- Add a student to the list.
-          """
-          if len(self.students) < 100:
-              self.students.append(student)
-          else:
-              print("Student list is full!")
-  
-      def findStudent(self, student_number):
-          """
-          #- Find a student by student number.
-          """
-          for student in self.students:
-              if student.getStudentNumber() == student_number:
-                  return student
-          return None
-  
-      def showStudents(self):
-          """
-          #- Display all students.
-          """
-          for student in self.students:
-              print(student.toList())
-  
-      
-      def saveToFile(self, filename):
-        """
-        #- Save students to a CSV file.
-        """
-        with open(filename, 'w', newline='') as f:
-            writer = csv.writer(f)
+    def __init__(self, filename="students.csv"):
+        self.filename = filename
+        self.students = self.loadFromFile()
+
+    def loadFromFile(self):
+        students = []
+        try:
+            with open(self.filename, 'r') as file:
+                reader = csv.reader(file)
+                next(reader)  # Skip header
+                for row in reader:
+                    student = Student(row[0], row[1], row[2], row[3], row[4], row[5])
+                    students.append(student)
+        except FileNotFoundError:
+            pass  # If the file does not exist, it will be created on save
+        return students
+
+    def saveToFile(self):
+        with open(self.filename, 'w', newline='') as file:
+            writer = csv.writer(file)
             writer.writerow(["Student Number", "First Name", "Last Name", "Date of Birth", "Country of Birth", "Sex"])
             for student in self.students:
                 writer.writerow(student.toList())
 
-      def loadFromFile(self, filename):
-        """
-        #- Load students from a CSV file.
-        """
-        try:
-            with open(filename, 'r') as f:
-                reader = csv.reader(f)
-                next(reader)  # Skip header row
-                self.students = [Student(row[0], row[1], row[2], Student.formatDate(row[3]), row[4], row[5]) for row in reader]
-        except FileNotFoundError:
-            print("File not found!")
+    def addStudent(self, student):
+        if len(self.students) < 100:
+            self.students.append(student)
+            self.saveToFile()
+            print(f"Student {student.getFirstName()} {student.getLastName()} added successfully.")
+        else:
+            print("Cannot add more students. The student list is full.")
+
+    def findStudent(self, student_number):
+        for student in self.students:
+            if student.getStudentNumber() == student_number:
+                # Display all information about the student
+                print(f"Student Number: {student.getStudentNumber()}")
+                print(f"First Name: {student.getFirstName()}")
+                print(f"Last Name: {student.getLastName()}")
+                print(f"Date of Birth: {student.getDateOfBirth()}")
+                print(f"Country of Birth: {student.getCountryOfBirth()}")
+                print(f"Sex: {student.getSex()}")
+                print(f"Age: {student.getAge()}")
+                return student
+        return None
+
+
+    def showStudents(self):
+        for student in self.students:
+            print(student.toList())
+
 
 #-------------------------#
 # Main Menu Section       #
 #-------------------------#
 
 def main():
-    student_manager = StudentManager() # initializes the class to store student records
+    student_manager = StudentManager()  # initializes the class to store student records
     
     while True:
-        # displays menu options for the user
         print("\n--- Menu ---")
         print("1. Add Student")
         print("2. Show All Students")
@@ -221,7 +218,7 @@ def main():
         print("6. Delete Student")
         print("7. Exit")
         
-        choice = input("Choose an option: ") #takes user input to choose an option
+        choice = input("Choose an option: ")
         
         if choice == '1':  # adds student
             student_number = input("Enter student number: ")
@@ -231,7 +228,6 @@ def main():
             country_of_birth = input("Enter country of birth: ")
             sex = input("Enter sex (Male/Female): ")
             
-            # creates a new student object and adds it to the student manager
             student = Student(student_number, first_name, last_name, date_of_birth, country_of_birth, sex)
             student_manager.addStudent(student)
             print(f"Student {first_name} {last_name} added successfully.")
@@ -239,26 +235,32 @@ def main():
         elif choice == '2':  # shows all students
             student_manager.showStudents()
         
-        elif choice == '3':  # finds a student by std number
+        elif choice == '3':  # finds a student by student number
             student_number = input("Enter student number to search: ")
             student = student_manager.findStudent(student_number)
             if student:
-                print(f"Found Student: {student.getFirstName()} {student.getLastName()}, Age: {student.getAge()}")
+                # Display all information about the student (this part was missing)
+                print(f"Student Number: {student.getStudentNumber()}")
+                print(f"First Name: {student.getFirstName()}")
+                print(f"Last Name: {student.getLastName()}")
+                print(f"Date of Birth: {student.getDateOfBirth()}")
+                print(f"Country of Birth: {student.getCountryOfBirth()}")
+                print(f"Sex: {student.getSex()}")
+                print(f"Age: {student.getAge()}")
             else:
                 print("Student not found.")
+
         
-        elif choice == '4':  # shows all students by the given year
+        elif choice == '4':  # shows all students born in the given year
             year = input("Enter year to search for students born in that year: ")
             year = int(year)
             for student in student_manager.students:
                 if student.getDateOfBirth().startswith(str(year)):
                     print(student.toList())
         
-        elif choice == '5':  # modifies the student record
+        elif choice == '5':  # modifies student record
             student_number = input("Enter student number to modify: ")
             student = student_manager.findStudent(student_number)
-            
-            # if the student is found, asks the field to modify
             if student:
                 print("What field would you like to modify?")
                 print("1. First Name")
@@ -284,16 +286,17 @@ def main():
                     new_sex = input("Enter new sex (Male/Female): ")
                     student.setSex(new_sex)
                 
+                student_manager.saveToFile()
                 print("Student record updated successfully.")
             else:
                 print("Student not found.")
         
-
         elif choice == '6':  # deletes the student
             student_number = input("Enter student number to delete: ")
             student = student_manager.findStudent(student_number)
             if student:
                 student_manager.students.remove(student)
+                student_manager.saveToFile()
                 print(f"Student {student.getFirstName()} {student.getLastName()} deleted successfully.")
             else:
                 print("Student not found.")
@@ -303,7 +306,7 @@ def main():
             break
         
         else:
-            print("Invalid option, please try again.")  
+            print("Invalid option, please try again.")
 
 #Main function
 if __name__ == "__main__": #Only executes the main() function when the file is not imported
