@@ -305,5 +305,6 @@ def main():
         else:
             print("Invalid option, please try again.")  
 
-if __name__ == "__main__":
+#Main function
+if __name__ == "__main__": #Only executes the main() function when the file is not imported
     main()
