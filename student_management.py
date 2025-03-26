@@ -207,7 +207,102 @@ class StudentManager:
 #-------------------------#
 
 def main():
-    return    
+    student_manager = StudentManager() # initializes the class to store student records
+    
+    while True:
+        # displays menu options for the user
+        print("\n--- Menu ---")
+        print("1. Add Student")
+        print("2. Show All Students")
+        print("3. Find Student")
+        print("4. Show All Students Born in a Given Year")
+        print("5. Modify Student Record")
+        print("6. Delete Student")
+        print("7. Exit")
+        
+        choice = input("Choose an option: ") #takes user input to choose an option
+        
+        if choice == '1':  # adds student
+            student_number = input("Enter student number: ")
+            first_name = input("Enter first name: ")
+            last_name = input("Enter last name: ")
+            date_of_birth = input("Enter date of birth (YYYY-MM-DD): ")
+            country_of_birth = input("Enter country of birth: ")
+            sex = input("Enter sex (Male/Female): ")
+            
+            # creates a new student object and adds it to the student manager
+            student = Student(student_number, first_name, last_name, date_of_birth, country_of_birth, sex)
+            student_manager.addStudent(student)
+            print(f"Student {first_name} {last_name} added successfully.")
+        
+        elif choice == '2':  # shows all students
+            student_manager.showStudents()
+        
+        elif choice == '3':  # finds a student by std number
+            student_number = input("Enter student number to search: ")
+            student = student_manager.findStudent(student_number)
+            if student:
+                print(f"Found Student: {student.getFirstName()} {student.getLastName()}, Age: {student.getAge()}")
+            else:
+                print("Student not found.")
+        
+        elif choice == '4':  # shows all students by the given year
+            year = input("Enter year to search for students born in that year: ")
+            year = int(year)
+            for student in student_manager.students:
+                if student.getDateOfBirth().startswith(str(year)):
+                    print(student.toList())
+        
+        elif choice == '5':  # modifies the student record
+            student_number = input("Enter student number to modify: ")
+            student = student_manager.findStudent(student_number)
+            
+            # if the student is found, asks the field to modify
+            if student:
+                print("What field would you like to modify?")
+                print("1. First Name")
+                print("2. Last Name")
+                print("3. Date of Birth")
+                print("4. Country of Birth")
+                print("5. Sex")
+                field = input("Choose a field to modify: ")
+                
+                if field == '1':
+                    new_first_name = input("Enter new first name: ")
+                    student.setFirstName(new_first_name)
+                elif field == '2':
+                    new_last_name = input("Enter new last name: ")
+                    student.setLastName(new_last_name)
+                elif field == '3':
+                    new_date_of_birth = input("Enter new date of birth (YYYY-MM-DD): ")
+                    student.setDateOfBirth(new_date_of_birth)
+                elif field == '4':
+                    new_country = input("Enter new country of birth: ")
+                    student.setCountryOfBirth(new_country)
+                elif field == '5':
+                    new_sex = input("Enter new sex (Male/Female): ")
+                    student.setSex(new_sex)
+                
+                print("Student record updated successfully.")
+            else:
+                print("Student not found.")
+        
+
+        elif choice == '6':  # deletes the student
+            student_number = input("Enter student number to delete: ")
+            student = student_manager.findStudent(student_number)
+            if student:
+                student_manager.students.remove(student)
+                print(f"Student {student.getFirstName()} {student.getLastName()} deleted successfully.")
+            else:
+                print("Student not found.")
+        
+        elif choice == '7':  # exit
+            print("Exiting...")
+            break
+        
+        else:
+            print("Invalid option, please try again.")  
 
 if __name__ == "__main__":
     main()
