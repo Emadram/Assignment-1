@@ -12,6 +12,7 @@ class Student:
     @param __date_of_birth: Student date of birth @Type = Int
     @param __country_of_birth: Student country of birth @Type = Str
     @param __sex: Student sex (Male/Female) @Type = Str
+    @param __age: Student age @Type = Int
     """
     def __init__(self, student_number, first_name, \
         last_name, date_of_birth, country_of_birth, sex):
@@ -21,6 +22,7 @@ class Student:
         self.__date_of_birth = self.formatDate(date_of_birth)
         self.__country_of_birth = str(country_of_birth)
         self.__sex = str(sex)
+        self.__age = self.getAge()
 
     #-------------------------#
     # Getter Methods Section  #
