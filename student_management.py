@@ -230,7 +230,6 @@ def main():
             
             student = Student(student_number, first_name, last_name, date_of_birth, country_of_birth, sex)
             student_manager.addStudent(student)
-            print(f"Student {first_name} {last_name} added successfully.")
         
         elif choice == '2':  # shows all students
             student_manager.showStudents()
