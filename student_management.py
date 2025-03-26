@@ -184,14 +184,6 @@ class StudentManager:
     def findStudent(self, student_number):
         for student in self.students:
             if student.getStudentNumber() == student_number:
-                # Display all information about the student
-                print(f"Student Number: {student.getStudentNumber()}")
-                print(f"First Name: {student.getFirstName()}")
-                print(f"Last Name: {student.getLastName()}")
-                print(f"Date of Birth: {student.getDateOfBirth()}")
-                print(f"Country of Birth: {student.getCountryOfBirth()}")
-                print(f"Sex: {student.getSex()}")
-                print(f"Age: {student.getAge()}")
                 return student
         return None
 
