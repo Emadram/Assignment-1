@@ -27,3 +27,6 @@ class TokenLexicalAnalyzer:
   			self.buffer = self.file.read()
   			return True
   			
+  		except FileNotFoundError:
+  			print(f"Error: No such File found {self.file_name}")
+  			return False
