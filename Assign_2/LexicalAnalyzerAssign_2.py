@@ -31,6 +31,7 @@ class TokenLexicalAnalyzer:
   			print(f"Error: No such File found {self.file_name}")
   			return False
 
+
   	def closeFile(self):
 
   		if self.file == True:
@@ -38,3 +39,8 @@ class TokenLexicalAnalyzer:
 
 
   	def ignoreWhiteSpace(self):
+  		while self.pointer_position < len(self.buffer) and self.buffer[self.pointer_position] == " ":
+  			self.pointer_position += 1
+
+
+  	
