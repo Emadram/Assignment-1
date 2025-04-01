@@ -10,7 +10,7 @@ class TokenBuffer:#TODO PUT COMMENTS -> EMAD
 		return f"<{self.token_type}, {self.value}>"
 
 
-class TokenLexicalAnalyzer:
+class TokenLexicalAnalyzer:#TODO PUT COMMENTS -> EMAD
 
 	def __init__(self, file_name):
 		self.file_name = file_name
