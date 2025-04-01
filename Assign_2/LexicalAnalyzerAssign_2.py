@@ -9,3 +9,7 @@ class TokenBuffer:
 	def __str__(self):
 		return f"<{self.token_type}, {self.value}>"
 
+
+class TokenLexicalAnalyzer:
+
+	
