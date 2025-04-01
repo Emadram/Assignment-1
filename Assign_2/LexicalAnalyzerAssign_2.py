@@ -14,7 +14,16 @@ class TokenLexicalAnalyzer:
 
 	def __init__(self, file_name):
 		self.file_name = file_name
-		self.file = None #Default value of file
-		self.buffer = "" #Default value of buffer
-		self.pointer_position = 0 #Default place for the pointer to look at in the file
-  		self.symbol_buffer = []
+		self.file = None #Init value of file
+		self.buffer = "" #Init value of buffer
+		self.pointer_position = 0 #Init place for the pointer to look at in the file
+  		self.symbol_buffer = [] #Init of symbol buffer
+
+
+  	def openFile(self):
+
+  		try:
+  			self.file = open(self.file_name, 'r')
+  			self.buffer = self.file.read()
+  			return True
+  			
