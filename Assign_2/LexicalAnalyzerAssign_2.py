@@ -12,4 +12,9 @@ class TokenBuffer:
 
 class TokenLexicalAnalyzer:
 
-	
+	def __init__(self, file_name):
+		self.file_name = file_name
+		self.file = None #Default value of file
+		self.buffer = "" #Default value of buffer
+		self.pointer_position = 0 #Default
+  		self.symbol_buffer = []
