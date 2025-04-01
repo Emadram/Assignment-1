@@ -32,7 +32,7 @@ class TokenLexicalAnalyzer:#TODO PUT COMMENTS -> EMAD
   			return False
 
 
-  	def closeFile(self):
+  	def closeFile(self):#TODO PUT COMMENTS -> EMAD
 
   		if self.file == True:
   			self.file.close()
