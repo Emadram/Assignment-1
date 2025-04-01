@@ -36,4 +36,5 @@ class TokenLexicalAnalyzer:
   		if self.file == True:
   			self.file.close()
 
-  	
+
+  	def ignoreWhiteSpace(self):
