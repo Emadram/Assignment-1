@@ -17,10 +17,10 @@ class TokenLexicalAnalyzer:#TODO PUT COMMENTS -> EMAD
 		self.file = None #Init value of file
 		self.buffer = "" #Init value of buffer
 		self.pointer_position = 0 #Init place for the pointer to look at in the file
-  		self.symbol_buffer = [] #Init of symbol buffer
+		self.symbol_buffer = [] #Init of symbol buffer
 
 
-  	def openFile(self):#TODO PUT COMMENTS -> EMAD
+	def openFile(self):#TODO PUT COMMENTS -> EMAD
 
   		try:
   			self.file = open(self.file_name, 'r')
@@ -31,14 +31,12 @@ class TokenLexicalAnalyzer:#TODO PUT COMMENTS -> EMAD
   			print(f"Error: No such File found {self.file_name}")
   			return False
 
-
-  	def closeFile(self):#TODO PUT COMMENTS -> EMAD
+	def closeFile(self):#TODO PUT COMMENTS -> EMAD
 
   		if self.file == True:
   			self.file.close()
 
-
-  	def ignoreWhiteSpace(self):#TODO PUT COMMENTS -> EMAD
+	def ignoreWhiteSpace(self):#TODO PUT COMMENTS -> EMAD
   		while self.pointer_position < len(self.buffer) and self.buffer[self.pointer_position] == " ":
   			self.pointer_position += 1
 
@@ -57,7 +55,7 @@ class TokenLexicalAnalyzer:#TODO PUT COMMENTS -> EMAD
 
 
 
- def main():
+def main():
  	yield #TODO
  	#USER INTERFACE AND INPUT CODE
 
