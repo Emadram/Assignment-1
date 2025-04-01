@@ -43,4 +43,29 @@ class TokenLexicalAnalyzer:
   			self.pointer_position += 1
 
 
-  	
+  	#TODO def lex(self)
+
+  	#TODO def checkNumber(self)
+
+  	#TODO def checkIdentifier(self)
+
+  	#TODO def checkAnd(self)
+
+  	#TODO def checkOr(self)
+
+  	#TODO def getSymbolBuffer
+
+
+
+ def main():
+ 	yield #TODO
+ 	#USER INTERFACE AND INPUT CODE
+
+
+
+
+
+
+
+if __name__ == "__main__":
+	main()
