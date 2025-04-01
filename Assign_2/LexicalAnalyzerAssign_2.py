@@ -26,7 +26,14 @@ class TokenLexicalAnalyzer:
   			self.file = open(self.file_name, 'r')
   			self.buffer = self.file.read()
   			return True
-  			
+
   		except FileNotFoundError:
   			print(f"Error: No such File found {self.file_name}")
   			return False
+
+  	def closeFile(self):
+
+  		if self.file == True:
+  			self.file.close()
+
+  	
