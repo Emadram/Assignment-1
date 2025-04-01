@@ -20,7 +20,7 @@ class TokenLexicalAnalyzer:#TODO PUT COMMENTS -> EMAD
   		self.symbol_buffer = [] #Init of symbol buffer
 
 
-  	def openFile(self):
+  	def openFile(self):#TODO PUT COMMENTS -> EMAD
 
   		try:
   			self.file = open(self.file_name, 'r')
