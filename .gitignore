@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 *.csv
 .DS_Store
+*.zip
+*.pdf
