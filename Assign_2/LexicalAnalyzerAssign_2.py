@@ -1,5 +1,5 @@
 
-class TokenBuffer:
+class TokenBuffer:#TODO PUT COMMENTS -> EMAD
 
 	def __init__(self, token_type, token_value):
 		self.token_type = token_type
