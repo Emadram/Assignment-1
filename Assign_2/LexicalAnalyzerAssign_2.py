@@ -38,7 +38,7 @@ class TokenLexicalAnalyzer:#TODO PUT COMMENTS -> EMAD
   			self.file.close()
 
 
-  	def ignoreWhiteSpace(self):
+  	def ignoreWhiteSpace(self):#TODO PUT COMMENTS -> EMAD
   		while self.pointer_position < len(self.buffer) and self.buffer[self.pointer_position] == " ":
   			self.pointer_position += 1
 
