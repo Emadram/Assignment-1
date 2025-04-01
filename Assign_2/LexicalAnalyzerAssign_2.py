@@ -1,5 +1,8 @@
 
-class TokenBuffer:#TODO PUT COMMENTS -> EMAD
+class TokenBuffer:
+	"""
+
+	"""
 
 	def __init__(self, token_type, token_value):
 		self.token_type = token_type
@@ -10,7 +13,10 @@ class TokenBuffer:#TODO PUT COMMENTS -> EMAD
 		return f"<{self.token_type}, {self.value}>"
 
 
-class TokenLexicalAnalyzer:#TODO PUT COMMENTS -> EMAD
+class TokenLexicalAnalyzer:
+	"""
+	
+	"""
 
 	def __init__(self, file_name):
 		self.file_name = file_name
