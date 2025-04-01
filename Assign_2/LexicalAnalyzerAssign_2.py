@@ -16,5 +16,5 @@ class TokenLexicalAnalyzer:
 		self.file_name = file_name
 		self.file = None #Default value of file
 		self.buffer = "" #Default value of buffer
-		self.pointer_position = 0 #Default
+		self.pointer_position = 0 #Default place for the pointer to look at in the file
   		self.symbol_buffer = []
