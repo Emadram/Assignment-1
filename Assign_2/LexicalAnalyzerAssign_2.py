@@ -17,6 +17,7 @@ class TokenBuffer:
 class TokenLexicalAnalyzer:
     """
     Reads inputs from file and breaks the text into tokens
+    @param file_name given file name
     """
     def __init__(self, file_name):
         self.file_name = file_name
