@@ -2,13 +2,16 @@ import re
 
 class TokenBuffer:
     """
-    Represents a token with its type and value.
+    TokenBuffer is the class that stores token's type and value
+    @param token_type = type of token can be (INTEGER, FLOAT, ID, BITWISE_OR, LOGICAL_OR, BITWISE_AND, LOGICAL_AND, ERROR)
+    @param token_value = given token value
     """
     def __init__(self, token_type, token_value):
         self.token_type = token_type
         self.token_value = token_value
 
     def __str__(self):
+        # return format = <type, value>
         return f"<{self.token_type}, {self.token_value}>"
 
 class TokenLexicalAnalyzer:
