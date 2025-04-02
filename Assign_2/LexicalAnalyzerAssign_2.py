@@ -27,6 +27,7 @@ class TokenLexicalAnalyzer:
         self.symbol_buffer = []  # Symbol table
 
     def openFile(self):
+
     """
     Opens input file and reads its text contents
     """
