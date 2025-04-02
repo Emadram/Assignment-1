@@ -27,9 +27,9 @@ class TokenLexicalAnalyzer:
         self.symbol_buffer = []  # Symbol table
     
     def openFile(self):
-    """
-    Opens input file and reads its text contents
-    """
+        """
+        Opens input file and reads its text contents
+         """
         try:
             self.file = open(self.file_name, 'r')
             self.buffer = self.file.read()
@@ -126,7 +126,8 @@ class TokenLexicalAnalyzer:
         return self.symbol_buffer
 
 def main():
-#TODO BY BESTE
+    yield
+    #TODO BY BESTE
 
 if __name__ == "__main__":
     main()
