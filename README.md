@@ -92,4 +92,4 @@ git push origin main
 
 ---
 
-✅ **Done!** You are now set up to pull and push to **[Assignment-1](https://github.com/Emadram/Assignment-1)**.  
+✅ **Done!** You are now set up to pull and push to **[Assignment-1](https://github.com/Emadram/Assignment-1)**
