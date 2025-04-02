@@ -16,7 +16,7 @@ class TokenBuffer:
 
 class TokenLexicalAnalyzer:
     """
-    A lexical analyzer that tokenizes identifiers, numbers, and logical/bitwise operators.
+    Reads inputs from file and breaks the text into tokens
     """
     def __init__(self, file_name):
         self.file_name = file_name
