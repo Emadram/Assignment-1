@@ -1,4 +1,4 @@
-# 🚀 Git Setup & Usage for Assignment-1
+# 🚀 Git Setup & Usage for Assignments
 
 ## **1. Git Environment Setup (Windows)**  
 
