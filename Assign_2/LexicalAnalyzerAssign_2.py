@@ -152,7 +152,6 @@ def main():
         print("3. Exit")
         
         choice = input("Choose an option: ")
-        
         if choice == '1':
             #calls lex func and returns a token
             token = lexical_analyzer.lex()
