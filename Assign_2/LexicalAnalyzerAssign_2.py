@@ -22,7 +22,7 @@ class TokenLexicalAnalyzer:
     def __init__(self, file_name):
         self.file_name = file_name
         self.file = None  # File reference
-        self.buffer = ""  # File content buffer
+self.buffer = ""  # File content buffer
         self.pointer_position = 0  # Pointer for traversal
         self.symbol_buffer = []  # Symbol table
     
@@ -70,6 +70,16 @@ class TokenLexicalAnalyzer:
         
         if char.isdigit() or (char == '-' and self.pointer_position + 1 < len(self.buffer) and self.buffer[self.pointer_position + 1].isdigit()):
             return self.checkNumber()
+        #Extra check to be sure its a number
+        elif char.isdigit():
+            invalid_pattern = re.compile(r'\d+[a-zA-Z_][a-zA-Z0-9_]*')
+            match = invalid_pattern.match(self.buffer, self.pointer_position)
+            if match:
+                invalid_token = match.group()
+                self.pointer_position += len(invalid_token)
+                return TokenBuffer("ERROR", f'"{invalid_token}"')
+            return self.checkNumber()  # If it's just a number, process it normally
+
         elif char.isalpha() or char == '_':
             return self.checkIdentifier()
         elif char == '&':
