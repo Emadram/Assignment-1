@@ -22,7 +22,7 @@ class TokenLexicalAnalyzer:
     def __init__(self, file_name):
         self.file_name = file_name
         self.file = None  # File reference
-self.buffer = ""  # File content buffer
+        self.buffer = ""  # File content buffer
         self.pointer_position = 0  # Pointer for traversal
         self.symbol_buffer = []  # Symbol table
     
