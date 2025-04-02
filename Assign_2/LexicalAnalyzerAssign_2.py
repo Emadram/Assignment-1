@@ -39,12 +39,16 @@ class TokenLexicalAnalyzer:
             return False
 
     def closeFile(self):
-        """Closes the input file if it's open."""
+        """
+        Closing the files so its no longer in the buffer
+        """
         if self.file:
             self.file.close()
 
     def ignoreWhiteSpace(self):
-        """Moves the pointer past whitespace characters."""
+        """
+        Skipping the white spaces/tabs
+        """
         while self.pointer_position < len(self.buffer) and self.buffer[self.pointer_position].isspace():
             self.pointer_position += 1
 
