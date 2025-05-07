@@ -1,7 +1,6 @@
 #ifndef PARSERAPPLICATIONHEADER_H
 #define PARSERAPPLICATIONHEADER_H
 
-
 //Libraries
 #include <iostream>
 #include <fstream>
@@ -23,6 +22,6 @@ void T();
 void S();
 void F();
 void N();
-
+void InitializeParser(const std::string& filename);
 
 #endif // PARSERAPPLICATIONHEADER_H

@@ -1,6 +1,4 @@
 #include "ParserApplicationHeader.h"
-#include <cctype>   // std::isspace
-#include <fstream>  // file handling
 
 // Lexical analyzer - gets the next character from the file
 void LEX() {
