@@ -23,6 +23,6 @@ void S();
 void F();
 void N();
 void InitializeParser(const std::string& filename);
-
+//-----------------------------------//
 #endif // PARSERAPPLICATIONHEADER_H
 //-----------------------------------//
