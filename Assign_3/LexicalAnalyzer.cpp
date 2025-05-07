@@ -45,7 +45,14 @@ void G() {
     
     if (NextToken == '$' && !Error) {
         std::cout << "success" << std::endl;
+    } else if (!Error) {
+        // If parsing was successful but there are still unconsumed characters
+        Error = true;
+        std::cout << "error: unexpected token " << NextToken << std::endl;
+        std::cout << "unconsumed input: " << NextToken + RemainingInput() << std::endl;
+        std::cout << "failure: unconsumed input=" << NextToken + RemainingInput() << std::endl;
     } else {
+        // An error occurred during parsing
         std::cout << "failure: unconsumed input=" << RemainingInput() << std::endl;
     }
 }
