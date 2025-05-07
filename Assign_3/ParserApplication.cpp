@@ -1,6 +1,6 @@
 #include "ParserApplicationHeader.h"
 
-
+// Global variables
 bool Error = false;
 char NextToken = '%';
 std::ifstream InputFile;
