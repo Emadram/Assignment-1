@@ -1,21 +1,21 @@
-#ifndef PARSERAPPLICATION_H
-#define PARSERAPPLICATION_H
+#ifndef PARSERAPPLICATIONHEADER_H
+#define PARSERAPPLICATIONHEADER_H
 
 
-//Librarie
+//Libraries
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <cctype>
 
 // Global variables
-extern bool ERROR;
-extern char NEXT_TOKEN;
-extern std::ifstream INPUT_FILE;
+extern bool Error;
+extern char NextToken;
+extern std::ifstream InputFile;
 
 // Function prototypes
 void LEX();
-std::string UNCONSUMED_INPUT();
+std::string RemainingInput();
 void G();
 void E();
 void R();
@@ -25,4 +25,4 @@ void F();
 void N();
 
 
-#endif // PARSERAPPLICATION_H
+#endif // PARSERAPPLICATIONHEADER_H
