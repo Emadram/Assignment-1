@@ -31,4 +31,22 @@
 --TEST SECTION
 main :: IO ()
 main = do
-            
+-- Testing div_by_3:
+
+-- Testing div_by_2:
+
+-- Testing count:
+
+-- Testing triple:
+
+-- Testing sort:
+
+-- Testing from_to:
+
+-- Testing nth_element:
+
+-- Testing mth_element:
+
+-- Testing add_lists:
+
+-- Testing classify:            
