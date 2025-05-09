@@ -5,3 +5,13 @@ __pycache__/
 *.zip
 *.pdf
 /Assign_3/parser
+#exe files
+*.exe
+*.dll
+*.obj
+*.pdb
+bin/
+obj/
+/Assign_4/source
+/Assign_4/source.*
+
