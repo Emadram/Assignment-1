@@ -32,7 +32,7 @@
 nth_element :: Int -> [a] -> a
 nth_element 1 (x:_) = x
 nth_element n (_:xs) = nth_element (n - 1) xs
-nth_element _ [] = Error "Indexing out of list bounds"
+nth_element _ [] = error "Indexing out of list bounds"
 -- ############ --
 -- ############ --
 -- ############ --
@@ -94,32 +94,32 @@ main = do
 -- ############ --
 -- ############ --
 -- P07-Testing nth_element:
-putStrLn "Testing nth_element:"
-print $ nth_element 3 [2, 5, 4, 6, 8]  -- get 4 case
-print $ nth_element 10 [1, 2, 3]  -- error case
+  putStrLn "Testing nth_element:"
+  print $ nth_element 3 [2, 5, 4, 6, 8]  -- get 4 case
+--Only for test  print $ nth_element 10 [1, 2, 3]  -- error case
 -- ############ --
 -- ############ --
 -- ############ --
 -- P08-Testing mth_element:
-putStrLn "Testing mth_element:"
-print $ mth_element 3 [2, 5, 4, 6, 8]  -- get 4 case
-print $ mth_element 1 [99, 100, 101]  -- first element case
+  putStrLn "Testing mth_element:"
+  print $ mth_element 3 [2, 5, 4, 6, 8]  -- get 4 case
+  print $ mth_element 1 [99, 100, 101]  -- first element case
 -- ############ --
 -- ############ --
 -- ############ --
 -- P09-Testing add_lists:
-putStrLn "Testing add_lists:"
-print $ add_lists [3, 4, 5] [10, 20, 30]  -- get [13,24,35] case
-print $ add_lists [3, 4, 5] [10, 20, 30, 88, 42]  -- longer second list case
-print $ add_lists [3, 4, 5] [10]  -- shorter second list case
-print $ add_lists [] [1, 2, 3]  -- empty first list case
+  putStrLn "Testing add_lists:"
+  print $ add_lists [3, 4, 5] [10, 20, 30]  -- get [13,24,35] case
+  print $ add_lists [3, 4, 5] [10, 20, 30, 88, 42]  -- longer second list case
+  print $ add_lists [3, 4, 5] [10]  -- shorter second list case
+  print $ add_lists [] [1, 2, 3]  -- empty first list case
 -- ############ --
 -- ############ --
 -- ############ --
 -- P10-Testing classify:
-putStrLn "Testing classify:"
-print $ classify 87  -- get 'B' case 
-print $ classify 92  -- get 'A' case
-print $ classify 65  -- get 'C'
-print $ classify 45  -- get 'D' case
-print $ classify 70  -- edge/boundary case
+  putStrLn "Testing classify:"
+  print $ classify 87  -- get 'B' case 
+  print $ classify 92  -- get 'A' case
+  print $ classify 65  -- get 'C'
+  print $ classify 45  -- get 'D' case
+  print $ classify 70  -- edge/boundary case
