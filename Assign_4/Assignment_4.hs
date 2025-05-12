@@ -13,21 +13,43 @@
 -- ############ --
 -- ############ --
 -- ############ --
--- Problem 4: Triple all values in a list
---TODO
+
+-- Task 4: triple
+-- Return a list where all values are triple the values in the original list.
+-- Uses map with a helper function.
+triple :: [Int] -> [Int]
+triple xs = map tripleHelper xs
+
+tripleHelper :: Int -> Int
+tripleHelper x = x * 3
 -- ############ --
 -- ############ --
 -- ############ --
--- Problem 5: Sort three numbers
---TODO
+
+-- Task 5: sort
+-- Return the 3 input numbers in sorted order.
+-- Must be non-recursive and use guards.
+sort :: Ord a => a -> a -> a -> [a]
+sort a b c
+    | a <= b && b <= c = [a, b, c]
+    | a <= c && c <= b = [a, c, b]
+    | b <= a && a <= c = [b, a, c]
+    | b <= c && c <= a = [b, c, a]
+    | c <= a && a <= b = [c, a, b]
+    | otherwise        = [c, b, a]
 -- ############ --
 -- ############ --
 -- ############ --
--- Problem 6: Get a slice of the list
---TODO
+
+-- Task 6: from_to
+-- Return a slice of the list from position n to m (inclusive), using take and drop.
+-- Note: Counting starts at 1.
+from_to :: Int -> Int -> [a] -> [a]
+from_to n m xs = take (m - n + 1) (drop (n - 1) xs)
 -- ############ --
 -- ############ --
 -- ############ --
+
 -- Problem 7: Get the nth element (recursively)
 nth_element :: Int -> [a] -> a
 nth_element 1 (x:_) = x
@@ -78,21 +100,31 @@ main = do
 -- ############ --
 -- ############ --
 -- ############ --
--- P04-Testing triple:
+  -- P04-Testing triple:
+  putStrLn "Testing triple:"
+  print $ triple [2, 4, 5, 1]        -- basic case: [6,12,15,3]
+  print $ triple [0, -1, 3]         -- includes zero and negative: [0,-3,9]
+  -- ############ --
+  -- ############ --
+  -- ############ --
 
--- ############ --
--- ############ --
--- ############ --
--- P05-Testing sort:
+  -- P05-Testing sort:
+  putStrLn "Testing sort:"
+  print $ sort 3 4 1                -- out of order: [1,3,4]
+  print $ sort 10 5 7              -- another permutation: [5,7,10]
+  print $ sort 1 1 1               -- all same: [1,1,1]
+  -- ############ --
+  -- ############ --
+  -- ############ --
 
--- ############ --
--- ############ --
--- ############ --
--- P06-Testing from_to:
-
--- ############ --
--- ############ --
--- ############ --
+  -- P06-Testing from_to:
+  putStrLn "Testing from_to:"
+  print $ from_to 3 5 [4,3,6,5,8,7,2,0]  -- [6,5,8]
+  print $ from_to 1 2 [9,8,7,6]         -- [9,8]
+  print $ from_to 5 5 [1,2,3,4,99,100]  -- single element: [99]
+  -- ############ --
+  -- ############ --
+  -- ############ --
 -- P07-Testing nth_element:
   putStrLn "Testing nth_element:"
   print $ nth_element 3 [2, 5, 4, 6, 8]  -- get 4 case
