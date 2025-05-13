@@ -1,15 +1,24 @@
 -- Problem 1: Get numbers divisible by 3
---TODO
+div_by_3 :: [Int] -> [Int]
+div_by_3 xs = [x | x <- xs, x `mod` 3 == 0]
 -- ############ --
 -- ############ --
 -- ############ --
 -- Problem 2: Get numbers divisible by 2
---TODO
+div_by_2 :: [Int] -> [Int]
+div_by_2 [] = []  -- returns an empty list if empty
+div_by_2 (x:xs)
+    | x `mod` 2 == 0 = x : div_by_2 xs  -- divisible by 2, include it and recurse
+    | otherwise      = div_by_2 xs      -- skip and recurse
 -- ############ --
 -- ############ --
 -- ############ --
 -- Problem 3: Count occurrences in a list
---TODO
+count :: Eq a => a -> [a] -> Int
+count _ [] = 0 
+count elem (x:xs)
+    | elem == x  = 1 + count elem xs  
+    | otherwise  = count elem xs      --just recurse
 -- ############ --
 -- ############ --
 -- ############ --
@@ -86,17 +95,25 @@ classify n
 main :: IO ()
 main = do
 -- p01-Testing div_by_3:
-
+  putStrLn "Testing div_by_3:"
+  print $ div_by_3 [6, 10, 15, 3, 9, 5]        -- numbers divisible by 3
+  print $ div_by_3 [3, -6, 9, 11, -12]  --[3, -6, 9, -12]
 -- ############ --
 -- ############ --
 -- ############ --
 -- P02-Testing div_by_2:
-
+  putStrLn "Testing div_by_2:"
+  print $ div_by_2 [6, 12, 15, 3]
+  print $ div_by_2 [3, -5, 4, -2, 8, -15]  --[-2, 4, 8]
 -- ############ --
 -- ############ --
 -- ############ --
 -- P03-Testing count:
-
+  putStrLn "Testing count:"
+  print $ count 'b' ['a', 'b', 'c', 'b', 's']  
+  print $ count 3 [3, 5, 4, 2, 8, 15, 3]       
+  print $ count 'x' ['a', 'b', 'c', 'b', 's']  
+  print $ count (-3) [3, -3, -3, 5, 8] 
 -- ############ --
 -- ############ --
 -- ############ --
